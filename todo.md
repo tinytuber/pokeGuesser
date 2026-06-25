@@ -1,11 +1,11 @@
 # Pokemon Grid Game — TODO
 
 ## Phase 1: Build Your Data
-- [ x ] Finalize spreadsheet schema (columns for id, name, types, evolution, legs, HMs, height, weight)
-- [ x ] Create CSV and fill in all 151 Pokemon
-- [ x ] Make judgment calls on edge cases (legless Pokemon, dual colors, etc.)
-- [ x ] Write Python script to convert CSV → SQLite database
-- [ x ] Manually run test queries to verify data looks correct
+- [x] Finalize spreadsheet schema (columns for id, name, types, evolution, legs, HMs, height, weight)
+- [x] Create CSV and fill in all 151 Pokemon
+- [x] Make judgment calls on edge cases (legless Pokemon, dual colors, etc.)
+- [x] Write Python script to convert CSV → SQLite database
+- [x] Manually run test queries to verify data looks correct
 
 ## Phase 2: Define Categories
 - [ ] Write a Python file defining all categories (label + SQL condition per category)
