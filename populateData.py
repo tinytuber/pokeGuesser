@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import requests
 import csv
+import sqlite3
 # %% Testing to see how the API works
 response = requests.get("https://pokeapi.co/api/v2/pokemon/1")
 print(response.json()["name"])
@@ -71,19 +72,27 @@ fieldnames = [
     "height_ft",
     "weight_lbs"
 ]
-with open('pokemon_real.csv', 'a', newline='') as f:
-    writer = csv.DictWriter(f, fieldnames=fieldnames)
-    for i in range(1,152):
-        data = poke(i)
-        row = {'id': i, 'name': data['name']}
-        for fn in fieldnames:
-            if fn.startswith('type_'):
-                row[fn] = 0
-        for t in data['types']:
-            row[f"type_{t['type']['name']}"] = 1
-        stage = poke()
-        rows.append(row)
 
+for i in range(1,152):
+
+    data = poke(i)
+    row = {'id': i, 'name': data['name']}  ##Name and ID
+
+    for fn in fieldnames:
+        if fn.startswith('type_'):
+            row[fn] = 0
+    for t in data['types']:
+        row[f"type_{t['type']['name']}"] = 1 ##Type
+
+    #Skip evolution and legs. Will fill out later
+
+    row["height_ft"] = data["height"]
+    row["weight_lbs"] = data["weight"]
+
+    rows.append(row)
+
+df = pd.DataFrame(rows, columns=fieldnames)
+df.to_csv("pokemon_real.csv")
 
 #%%
 # step 1 - get species data
@@ -94,4 +103,12 @@ evo_url = species['evolution_chain']['url']
 
 # step 3 - fetch the evolution chain
 evo_chain = requests.get(evo_url).json()
+# %% convert the csv to sqlite
+df2 = pd.read_csv("pokemon_real2.csv")
+df2.head()
 # %%
+# Connect to SQLite (creates the file if it doesn't exist) 
+conn = sqlite3.connect("poke_database.db") 
+# Convert dataframe to SQL table 
+df2.to_sql("my_table", conn, if_exists="replace", index=False) 
+conn.close()
