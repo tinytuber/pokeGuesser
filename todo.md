@@ -8,16 +8,16 @@
 - [x] Manually run test queries to verify data looks correct
 
 ## Phase 2: Define Categories
-- [ ] Write a Python file defining all categories (label + SQL condition per category)
-- [ ] Include categories for: each type, evolution stage, does not evolve, single vs dual type, legs, each HM, height threshold, weight threshold
-- [ ] Write a validation function: given two categories, query DB and return matching Pokemon
-- [ ] Test every category pair to confirm no combination returns 0 results
+- [x] Write a Python file defining all categories (label + SQL condition per category)
+- [x] Include categories for: each type, evolution stage, does not evolve, single vs dual type, legs, each HM, height threshold, weight threshold
+- [x] Write a validation function: given two categories, query DB and return matching Pokemon
+- [x] Test every category pair to confirm no combination returns 0 results
 
 ## Phase 3: Grid Generation
-- [ ] Write a function to randomly pick 3 row + 3 column categories (no repeats)
-- [ ] For each of the 9 cells, run the validation query
-- [ ] If any cell returns 0 results, discard and regenerate
-- [ ] Return the valid grid (6 category labels + valid Pokemon per cell)
+- [x] Write a function to randomly pick 3 row + 3 column categories (no repeats)
+- [x] For each of the 9 cells, run the validation query
+- [x] If any cell returns 0 results, discard and regenerate
+- [x] Return the valid grid (6 category labels + valid Pokemon per cell)
 
 ## Phase 4: Backend (Flask)
 - [ ] Set up a basic Flask project structure

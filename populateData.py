@@ -1,6 +1,6 @@
 #%%
 import pandas as pd
-import numpy as np
+import matplotlib.pyplot as plt
 import requests
 import csv
 import sqlite3
@@ -112,3 +112,8 @@ conn = sqlite3.connect("poke_database.db")
 # Convert dataframe to SQL table 
 df2.to_sql("my_table", conn, if_exists="replace", index=False) 
 conn.close()
+
+# %%
+plt.hist(df2.height_ft)
+plt.show()
+# %%
