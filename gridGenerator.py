@@ -19,9 +19,10 @@ def generator():
             works.append(row_and_col_validation)    
 
     if (sum(works) != 9):
-        print("test: " + str(indices))
+        #print("test: " + str(indices))
         return generator()         
-    return(indices)                   
+    return(indices)      
+'''             
 #%% testing
 df = pd.read_csv("pokemon_real2.csv")
 # %% Test how the nested for loop should work
@@ -35,6 +36,4 @@ for i in range(0,3):
             works.append(row_and_col_validation)    
 # %%
 test1 = generator()
-# %%
-
-# %%
+'''

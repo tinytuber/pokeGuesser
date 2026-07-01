@@ -29,6 +29,7 @@ def validation(cat1, cat2):
         return 0
     else:
         return 1
+'''
 # %%
 test1 = validation_all()
 # %% cool syntax
@@ -52,4 +53,4 @@ cursor = conn.cursor()
 cursor.execute("SELECT * FROM my_table LIMIT 5")
 print(cursor.fetchall())
 conn.close()
-# %%
+'''
